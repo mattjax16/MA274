@@ -1,0 +1,141 @@
+\documentclass[12pt]{article}
+\usepackage{fancyhdr,amsmath,amssymb}
+%\usepackage{sabon,hum521}
+%\usepackage[euler-digits]{eulervm}
+%\usepackage{multicol}
+%\usepackage{notsofull}
+%\usepackage{graphicx}
+
+\newcommand{\funny}{\ifcase\thepage 
+  \or Edward worried about his drinking. Would there be enough gin? Enough ice? -- Donald Barthelme, in \textit{Flying to America}
+  \or Pharmaceutical companies are better at inventing diseases that match existing drugs than inventing drugs to match existing diseases. -- Nassim Nicholas Taleb
+\fi}
+
+\pagestyle{fancy}
+\lhead{}
+\rhead{}
+\chead{}
+\cfoot{\textsf{\tiny\fontseries{m}\selectfont \funny}}
+\lfoot{}
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt}
+
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\rk}{rank}
+\newcommand{\tto}{\longrightarrow}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\F}{\ensuremath{\mathbb{F}}}
+\newcommand{\ndiv}{\nmid}
+\newcommand{\vct}[2]{\ensuremath{\begin{bmatrix}#1\\#2\end{bmatrix}}}
+\newcommand{\vctt}[3]{\ensuremath{\begin{bmatrix}#1\\#2\\#3\end{bmatrix}}}
+\newcommand{\vcttt}[4]{\ensuremath{\begin{bmatrix}#1\\#2\\#3\\#4\end{bmatrix}}}
+\newcommand{\rvct}[2]{\ensuremath{[#1,#2]}}
+\newcommand{\rvctt}[3]{\ensuremath{[#1,#2,#3]}}
+\newcommand{\rvcttt}[4]{\ensuremath{[#1,#2,#3,#4]}}
+\newcommand{\bE}{\mathbf{e}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bz}{\mathbf{z}}
+\newcommand{\st}{\mathrm{st}}
+
+\newcounter{wowser}
+\newcommand{\startwowsers}{\setcounter{wowser}{0}}
+\newcommand{\wowser}{\stepcounter{wowser}\par\vspace{\baselineskip}\noindent\textbf{\thewowser.}~}
+\newcommand{\swowser}{\stepcounter{wowser}\par\vspace{\baselineskip}\noindent\textbf{*\thewowser.}~}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\newcommand{\look}[1]{\par\vspace{\baselineskip}\noindent\textbf{#1}~}
+\newcommand{\sol}{\bgroup\sffamily\par\vspace{\baselineskip}\par}
+\newcommand{\esol}{\egroup}
+
+\startwowsers
+
+\begin{document}
+
+\vspace*{\baselineskip}
+
+\centerline{\large\textsc{ma}274, Fall 2021 --- Problem Set 1}
+
+\vspace{2\baselineskip}
+
+These problems are mostly about sets, set membership, and subsets,
+reflecting the material in chapter 1 of \textit{Numbers, Space, and
+  the Structures of Mathematics}, which I'll denote by NSSM. You
+should read chapter 1 carefully, working through the many examples.
+
+Most of these problems ask you to write a proof. The proof structures
+provided in NSSM are intended to help you do this. Please use
+them. Most of the proofs should be quite short.
+
+This assignment does not need to be done with \LaTeX, but if you are
+want to try to do that, go for it. I will place a (simplified) copy of
+the \LaTeX\ file for this problem set on the course Moodle page.
+
+Grading for problem sets will work like this:
+\begin{enumerate}
+\item I will randomly select four problems to be graded.
+\item The grader will assign up to two points per question. So if you
+  get all questions correct you will have eight points so far.
+\item The grader will add up to two ``style points.'' These will
+  reflect how well you have explained your answers.
+\end{enumerate}
+The resulting grade should be interpreted roughly as follows: 9 is a
+``perfect score''; 10 means you have done something exceptionally
+good; scores above 7 mean you are doing ok; anything less than that is
+an alarm bell.
+
+\wowser In NSSM, the notation for an open interval is $(a,b)$. The
+notation for a point in $\R^2$ is $(x,y)$, which looks exactly the
+same. An alternative is to write $]a,b[$ for the open interval. Is
+that notation better or worse? (There is no absolute answer, of
+course, but you should state your reasons for preferring one or the
+other.)
+
+\wowser Show that the interval $(-1,1)$ is a subset of the interval
+$[-2,4]$.
+
+\wowser Show that the interval $(0,1)$ is a subset of the set
+$X=\{x\in\R : x^2\leq x\}$. Are the two sets the same?
+
+\wowser NSSM, Section 1.7, Exercise 2.
+
+\wowser NSSM, Section 1.7, Exercise 4.
+
+%\wowser NSSM, Section 1.7, Exercise 6.
+
+\wowser NSSM, Section 1.7, Exercise 7.
+
+\wowser NSSM, Section 1.7, Exercise 11.
+
+%\wowser NSSM, Section 1.7, Exercise 13.
+
+\wowser NSSM, Section 1.7, Exercise 14.
+
+\wowser NSSM, Section 1.7, Exercise 16.
+
+% \wowser NSSM, Section 1.7, Exercise 19.
+
+% \wowser NSSM, Section 1.7, Exercise 21. (The hard part is to show that
+% any solution of the differential equation must be $g_A$ for some $A$.)
+
+%\wowser NSSM, Section 1.7, Exercise 22.
+
+\wowser Let $X$ be a set. Explain why these two statements say exactly
+the same thing:
+\begin{itemize}
+\item $a\in X$
+\item $\{a\}\subset X$
+\end{itemize}
+(By ``explain'' I mean that you should write one or two sentences in
+English that unpack the meaning of both notations, thereby showing
+that they say the same thing.)
+
+
+\end{document}
